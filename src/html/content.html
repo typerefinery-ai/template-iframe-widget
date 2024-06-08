@@ -1,6 +1,23 @@
 <h2>Page Content</h2>
 
+
+<h3>Get message from parent:</h3>
+
+<div>
+    <div id="message">Please send some message from the input above.</div>
+    <script>
+      window.addEventListener("message", function (event) {
+        console.log(["github receive",event]);
+        document.querySelector("#message").innerText =
+          typeof event.data === "string"
+            ? event.data
+            : JSON.stringify(event.data);
+      });
+    </script>
+</div>
+
 <h3>Raise event to parent:</h3>
+
 
 <div>
     <label for="messageText">Message:</label><br/>

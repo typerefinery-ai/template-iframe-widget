@@ -48,6 +48,30 @@ CSS is being compiled using SASS. Add your custom SASS code into template `src/s
 
 Add your custom JS code into js files in `src/js/`. Each file will be concatanated into `dist/widget.js`. Files are concatanated in the order they are listed in the folder.
 
+#### JS Vendor Libs
+
+To add vendor JS libraries that will be compiled into `dist/vendor.js` and `dist/vendor.css` update the following section in `webpack.common.js`:
+
+```javascript
+new MergeIntoSingleFilePlugin({
+        files: {
+            "vendor.js": [
+                'node_modules/jquery/dist/jquery.min.js',
+                'node_modules/@popperjs/core/dist/umd/popper.js',
+                'node_modules/bootstrap/dist/js/bootstrap.js',
+                'node_modules/d3/dist/d3.js',
+            ],
+            "vendor.css": [
+                //nothing here yet
+            ],
+            "widget.js": [
+                paths.src + '/js/**/*.js',
+            ]
+        }
+    }),
+
+```
+
 ##### JS Conventions
 
 Please keep JS simple, clean and namespaced.

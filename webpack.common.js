@@ -64,19 +64,21 @@ module.exports = {
       inject: false, //dont inject anything
     }),
 
+    //TODO: update this to include only the vendor files that are needed for the widget
     new MergeIntoSingleFilePlugin({
         files: {
+            //create one file for all vendor js
             "vendor.js": [
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/@popperjs/core/dist/umd/popper.js',
                 'node_modules/bootstrap/dist/js/bootstrap.js',
                 'node_modules/d3/dist/d3.js',
             ],
+            //create one file for all vendor css
             "vendor.css": [
-                // 'node_modules/bootstrap/dist/css/bootstrap.css',
-                // 'node_modules/bootstrap/dist/css/bootstrap-grid.css',
-                // 'node_modules/bootstrap/dist/css/bootstrap-reboot.css',
+                //nothing here yet
             ],
+            //create one file for all widget js
             "widget.js": [
                 paths.src + '/js/**/*.js',
             ]

@@ -80,4 +80,4 @@ window.Widgets = {};
         //initialize your class
     };
 
-})(jQuery, Widgets);
+})(window.jQuery, window.Widgets);
